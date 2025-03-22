@@ -1,0 +1,606 @@
+.nav-nav-navbar ul{
+    list-style-type: none;
+    display: flex;
+    gap: 4%;;
+    /* background-color: #f1e0e0; */
+}
+.nav-nav-navbar  img{
+    width: 12%;
+
+}
+.nav-nav-navbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 26px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  color: rgb(245, 191, 209);
+  
+}
+
+.nav-nav-navbar nav a:hover {
+  color: cadetblue;
+}
+ .nav-nav-navbar .search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #444;
+  
+}
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  width: 150px;
+  font-size: 18px;
+  transition: width 0.3s ease;
+  border-radius: 20px;
+  margin-top: -45%;
+}
+.search-box .search-icon{
+    color: seagreen;
+    margin-top: -45%;
+  font-size: 28px;
+
+}
+.search-box input:focus {
+  width: 200px;
+  border-color: cadetblue;
+}
+
+.user-icon{
+  font-size: 28px;
+}
+.user-icon:hover{
+  border-color: cadetblue;
+
+}
+.bag-icon{
+  font-size: 28px;
+
+}
+  /* coursal */
+  .carousel-caption{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-10%, -50%); 
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6); 
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); 
+  width: 80%;
+  max-width: 700px;
+
+  }
+  .carousel-caption h3 {
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color: #ffcc00; 
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px;
+  }
+  .carousel-caption p {
+    font-size: 1.4rem;
+    font-family: 'Lora', serif; 
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    line-height: 1.6;
+    max-width: 90%;
+  }
+  
+  
+    /* card */
+    .gri-gri-card  {
+        padding: 20px;
+        background-color: rgb(208, 185, 155);
+    }
+
+    .carddet{
+        gap: 8%;
+    }
+    
+/* .gri-gri-card{
+
+} */
+
+.video-editor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .video-editor .video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+/* -----------card2---------------- */
+  .card-card-cartw{
+    margin-left: 15%;
+    background-color: antiquewhite;
+  }
+  .card-card-cartw h1{
+    font-size: 1.5rem;
+    position: absolute;
+    border:2px solid cadetblue;
+    margin-top: -5%;
+    color: rgb(57, 3, 26);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    width: 15%;
+    background-color: rgba(255, 235, 205, 0.5); 
+    border-radius: 8px;
+  }
+
+  /* create */
+
+  .cre-cre-acc {
+    width: 80%;
+    border: 3px solid black;
+  }
+  .cre-cre-acc {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+  }
+  
+  .cre-cre-acc img {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+  
+  .cre-cre-acc h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .cre-cre-acc form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cre-cre-acc label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .cre-cre-acc input[type="text"],
+  .cre-cre-acc input[type="number"],
+  .cre-cre-acc input[type="password"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .cre-cre-acc input[type="text"]:focus,
+  .cre-cre-acc input[type="number"]:focus,
+  .cre-cre-acc input[type="password"]:focus {
+    border-color: cadetblue;
+    outline: none;
+  }
+  
+  .cre-cre-acc input[type="submit"] {
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cre-cre-acc input[type="submit"]:hover {
+    background-color: darkcyan;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  
+
+  /* login */
+/* blog */
+.blog-blog-blgpst h4 {
+  color: #ff5733; /* Vibrant color for text */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* Stronger shadow effect */
+  font-weight: bold;
+  font-size: 24px; /* Larger font size */
+  letter-spacing: 1px; /* Slight spacing for better readability */
+  text-transform: uppercase; /* Makes text uppercase for emphasis */
+  padding: 10px; /* Adds some spacing around */
+  border-bottom: 3px solid #ff5733; /* Adds a bottom border for emphasis */
+  display: inline-block; /* Ensures the border wraps the text */
+  transition: all 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+
+  .form-from-login {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+  }
+  
+  /* Logo */
+  .form-from-login img {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+  
+  /* Heading */
+  .form-from-login h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Form */
+  .form-from-login form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Labels */
+  .form-from-login label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  /* Input Fields */
+  .form-from-login input[type="text"],
+  .form-from-login input[type="password"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-from-login input[type="text"]:focus,
+  .form-from-login input[type="password"]:focus {
+    border-color: cadetblue;
+    outline: none;
+  }
+  
+  /* Submit Button */
+  .form-from-login input[type="submit"] {
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-from-login input[type="submit"]:hover {
+    background-color: darkcyan;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* login--------------- */
+
+  /* Container */
+.cus-cus-cusdetail {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeInUp 0.5s ease;
+}
+
+/* Logo */
+.cus-cus-cusdetail img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.cus-cus-cusdetail h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Subheadings */
+.cus-cus-cusdetail h3 {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Labels */
+.cus-cus-cusdetail label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Input Fields */
+.cus-cus-cusdetail input[type="text"],
+.cus-cus-cusdetail input[type="email"],
+.cus-cus-cusdetail input[type="number"],
+.cus-cus-cusdetail select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.cus-cus-cusdetail input:focus,
+.cus-cus-cusdetail select:focus {
+  border-color: cadetblue;
+  outline: none;
+}
+
+/* Select Dropdown */
+.cus-cus-cusdetail select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.cus-cus-cusdetail input[type="submit"] {
+  background-color: cadetblue;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cus-cus-cusdetail input[type="submit"]:hover {
+  background-color: darkcyan;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ...table. */
+
+/* Container */
+.tab-tab-table {
+  width: 100%;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+/* Heading */
+.tab-tab-table h4 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* Table Header */
+th {
+  background-color: cadetblue;
+  color: white;
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+}
+
+/* Table Data */
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+/* Hover Effect */
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Alternate Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+}
+
+    /* COLLECTION COMPO */
+
+    .product-card-container {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    
+    /* ===== Product Card Styling ===== */
+    .product-card {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* ===== Image Styling ===== */
+    .product-card img {
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* ===== Title Styling ===== */
+    .product-card h1 {
+      font-size: 1.2rem;
+      color: #333;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+    
+    /* ===== Discount Text Styling ===== */
+    .product-card p {
+      font-size: 1rem;
+      color: #ff5722;
+      margin-bottom: 5px;
+    }
+    
+    /* ===== Price Styling ===== */
+    .product-card h5 {
+      font-size: 1.1rem;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    /* ===== Button Styling ===== */
+    .product-card button {
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 100%;
+    }
+    
+    .product-card button:hover {
+      background-color: #e64a19;
+      transform: scale(1.05);
+    }
+
+    /* Blog */
+
+    .blog-blog-blgpst .row-row{
+      gap:5%
+    }
+    .blog-blog-blgpst h2{
+      font-size: 2rem;
+      font-family: initial;
+      color: #e64a19;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+      
+
+    }
+    .blog-blog-blgpst p{
+      font-size: 2.1ex;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #5a1a1a; 
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); 
+  line-height: 1.8; 
+  letter-spacing: 0.5px; 
+  margin-bottom: 15px; 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif; 
+  color: #4a4a4a; 
+  letter-spacing: 1.5px; 
+  text-align: center;
+  display: inline-block; 
+    }

@@ -1,0 +1,32 @@
+{
+  "student": [
+    {
+      "id": "5771",
+      "name": "Anam",
+      "age": 27,
+      "city": "Bhopal",
+      "course": "FSP"
+    },
+    {
+      "id": "1",
+      "name": "Anam",
+      "age": 27,
+      "city": "Bhopal",
+      "course": "FSP"
+    },
+    {
+      "id": "f7c1",
+      "name": "anam sayyed",
+      "age": "25",
+      "city": "bhopal",
+      "course": "ffdd"
+    },
+    {
+      "id": "b08e",
+      "name": "anam sayyed",
+      "age": "27",
+      "city": "puri",
+      "course": "ffdd"
+    }
+  ]
+}

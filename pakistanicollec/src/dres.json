@@ -1,0 +1,29 @@
+{
+  "Customer": [
+    {
+      "fullname": "Anam",
+      "email": "anamsayyed58@gmail.com",
+      "phnnumber": 123456,
+      "productname": "laptop",
+      "quantity": 1,
+      "address": "bhopal",
+      "id": "0654"
+    },
+    {
+      "id": "0ca2",
+      "fullname": "anam sayyed",
+      "email": "anamsayyed58@gmail.com",
+      "phnnumber": "08107738186",
+      "address": "house no. 20 neqr kallu bua masjid, kamla park",
+      "productname": "Mouse"
+    },
+    {
+      "id": "1126",
+      "fullname": "anam sayyed",
+      "email": "anamsayyed58@gmail.com",
+      "phnnumber": "08107738186",
+      "address": "house no. 20 neqr kallu bua masjid, kamla park",
+      "productname": "Mouse"
+    }
+  ]
+}

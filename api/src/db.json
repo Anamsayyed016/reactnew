@@ -1,0 +1,25 @@
+{
+  "students": [
+    {
+      "name": "Anam",
+      "age": 27,
+      "city": "bhopal",
+      "contact": 123,
+      "id": "c357"
+    },
+    {
+      "id": "dbed",
+      "name": "anam sayyed",
+      "age": "25",
+      "contact": "1234567890",
+      "city": "Bhopal"
+    },
+    {
+      "id": "fafb",
+      "name": "dddd",
+      "age": "25",
+      "contact": "1234567890",
+      "city": "Banswara"
+    }
+  ]
+}

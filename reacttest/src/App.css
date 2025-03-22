@@ -1,0 +1,9 @@
+.img1 img{
+    width: 10%;
+}
+.Navbar li {
+    list-style-type: none;
+    color: red;
+    margin-left: 20%;
+    display: flex;
+}

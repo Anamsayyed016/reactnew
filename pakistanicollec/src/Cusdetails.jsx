@@ -53,7 +53,7 @@ const Customeerdet=()=>{
     return(
         <>
                 <div className="tab-tab-table">
-            <h4>table</h4>
+            
             <table border="2">
                 <thead>
                 <tr>
@@ -135,7 +135,7 @@ const Customeerdet=()=>{
             </div>
 
 
-                            <h1>edit</h1>
+                           
                         {
                             shwfrm && (
                                 <div className="cus-cus-cusdetail">
@@ -172,6 +172,7 @@ const Customeerdet=()=>{
                           <option value="9">9</option>
                           <option value="10">10</option>
                         </select><br />
+                        
                                 <label htmlFor="">Address</label>
                                 <input type="text" name="address" placeholder="enter your full address"onChange={handleedit} value={edit.address} /> <br />
                         

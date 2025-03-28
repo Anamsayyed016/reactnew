@@ -8,7 +8,7 @@ import Login from './Login'
 import Layout from './Layout'
 import Sale from './Sale'
 import Customeerdet from './Cusdetails'
-
+import Customerjsondet from './Customerjsondet'
 
 
 
@@ -25,6 +25,7 @@ function App() {
                     <Route path = "/login" element={<Login/>}/>
                     <Route path = "/create" element={<Create/>}/>
                     <Route path = "/cusdetails" element={<Customeerdet/>}/>
+                    <Route path = "/customerjson" element={<Customerjsondet/>}/>
                     
 
                     

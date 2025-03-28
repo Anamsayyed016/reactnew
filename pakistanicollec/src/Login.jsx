@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
 
 
 const Login=()=>{
@@ -42,7 +42,7 @@ const Login=()=>{
             <label htmlFor="">Password</label>
             <input type="text" name = "password" placeholder="password" onChange={loginvalue}/> <br />
 
-            <input type="submit" value={"Login"} />
+            <input type="submit" value={"Login"} onClick={gotohome}/>
             </form>
             </div>
         </>

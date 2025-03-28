@@ -1,7 +1,8 @@
-import { Link , Outlet } from "react-router-dom";
+import { Link , Outlet, useNavigate } from "react-router-dom";
 import { FaUsers } from "react-icons/fa";
 import { IoBagCheckSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
+
 
 const Layout = ()=>{
 
@@ -14,9 +15,9 @@ const Layout = ()=>{
                                 <li><Link to='collection'>Collection</Link></li>
                             <img src="/imgvid/logo3.png" alt="" />
                                 <li><Link to='sale'>Sale</Link></li>
-                                <li><Link to='login'>Login</Link></li>
+                                {/* <li><Link to='login'>Login</Link></li> */}
                                 <li><Link to='create'>Create</Link></li>
-                                <li><Link to='cusdetails'>Customer</Link></li>
+                                {/* <li><Link to='cusdetails'>Customer</Link></li> */}
                                 
                                 
                             

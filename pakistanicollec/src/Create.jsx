@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 const Create =()=>{
@@ -7,6 +7,10 @@ const Create =()=>{
     let[frmdata, setFrmdata] = useState({
         your_name:"",number:"",email:"",password:""
     })
+
+        const gotoLogin=()=>{
+            Navigate("/login")
+        }
 
         let loginnav = useNavigate()
             function inpchange(e){
@@ -18,7 +22,7 @@ const Create =()=>{
                 e.preventDefault(e)
                 console.log(frmdata);
                 localStorage.setItem("userdata",JSON.stringify(frmdata))
-                loginnav ('login')
+                loginnav ("/login")
               }
 
     return(
@@ -41,7 +45,7 @@ const Create =()=>{
       <label htmlFor="">Password</label>
       <input type="text" name="password" placeholder="Your Password" onChange={inpchange}/> <br /> 
 
-      <input type="submit" value="Create Your Ade-e-Libaas account"  />
+      <input type="submit" value="Create Your Ade-e-Libaas account" onClick={gotoLogin} />
           </form>
 
             </div>   

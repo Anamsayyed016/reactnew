@@ -9,7 +9,7 @@ const Login=()=>{
 
             let [signdata,setSign] = useState("")
 
-            let navigator = useNavigate()
+            let gotohome = useNavigate()
 
             function loginvalue(e){
                 let {name,value} = e.target

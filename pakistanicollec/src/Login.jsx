@@ -9,7 +9,7 @@ const Login=()=>{
 
             let [signdata,setSign] = useState("")
 
-            let gotohome = useNavigate()
+            const  navigate  = useNavigate()
 
             function loginvalue(e){
                 let {name,value} = e.target
@@ -18,11 +18,11 @@ const Login=()=>{
 
             function logininput(e){
                 e.preventDefault()
-                if (signdata.username !=logindata || signdata.password != logindata.password){
+                if (signdata.email !=logindata.username || signdata.password != logindata.password){
                     alert("User data not found")
                 }
                 else{
-                    navigator('/home')
+                    navigate ('/')
                 }
             }
 
@@ -37,12 +37,12 @@ const Login=()=>{
         <h1>Login</h1>
             <form action="" onSubmit={logininput}>
             <label htmlFor="">Email or mobile phone number</label>
-            <input type="text" name = "name" placeholder="enter email or number" onChange={loginvalue} /> <br />
+            <input type="text" name = "username" placeholder="enter email or number" onChange={loginvalue} /> <br />
 
             <label htmlFor="">Password</label>
             <input type="text" name = "password" placeholder="password" onChange={loginvalue}/> <br />
 
-            <input type="submit" value={"Login"} onClick={gotohome}/>
+            <input type="submit" value={"Login"} />
             </form>
             </div>
         </>

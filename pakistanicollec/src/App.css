@@ -604,3 +604,84 @@ tbody tr:nth-child(even) {
   text-align: center;
   display: inline-block; 
     }
+
+    /* edit */
+    .edit-form {
+      width: 100%;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: fadeInUp 0.5s ease;
+    }
+      .edit-form h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      
+      /* Subheadings */
+      .edit-form h3 {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+      
+      /* Labels */
+      .edit-form label {
+        display: block;
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 5px;
+        text-align: left;
+      }
+      
+      /* Input Fields */
+      .edit-form input[type="text"],
+      .edit-form input[type="email"],
+      .edit-form input[type="number"],
+      .edit-form select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+      
+      .edit-form input:focus,
+      .edit-form  select:focus {
+        border-color: cadetblue;
+        outline: none;
+      }
+      
+      /* Select Dropdown */
+      .edit-form select {
+        appearance: none;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      
+      /* Submit Button */
+      .edit-form input[type="submit"] {
+        background-color: cadetblue;
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .edit-form input[type="submit"]:hover {
+        background-color: darkcyan;
+      }
+    

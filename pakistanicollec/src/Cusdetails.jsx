@@ -13,55 +13,55 @@ const Customeerdet=()=>{
                     navigatee('/customerjson')
                 }
 
-    //     let [apidata, setApidata] =  useState([])
-    //     let [frmdata,setFrmdata] = useState([])
-    //     let [shwfrm,setshw] = useState (false)
-    //   let [editdata,seteditdata] = useState ({})  
+        let [apidata, setApidata] =  useState([])
+        let [frmdata,setFrmdata] = useState([])
+        let [shwfrm,setshw] = useState (false)
+      let [editdata,seteditdata] = useState ({})  
 
 
     //     // edit
-    //     function handleedit(e){
-    //         const{name,value}=e.target
-    //         seteditdata({...editdata,[name]:value})
-    //     }
+        function handleedit(e){
+            const{name,value}=e.target
+            seteditdata({...editdata,[name]:value})
+        }
 
-    //     function editfinalsubmit(e){
-    //         e.preventDefault()
-    //         axios.put(`http://localhost:3000/Customer/${editdata.id}`,editdata)
-    //         .then(r=>alert("updated"))
-    //     }
+        function editfinalsubmit(e){
+            e.preventDefault()
+            axios.put(`http://localhost:3000/Customer/${editdata.id}`,editdata)
+            .then(r=>alert("updated"))
+        }
 
             
 
 
     //     // delete
-    //     function del(id){
-    //         axios.delete(`http://localhost:3000/Customer/${id}`)
-    //         .then(r=>alert("Deleted"))
-    //     }
+        function del(id){
+            axios.delete(`http://localhost:3000/Customer/${id}`)
+            .then(r=>alert("Deleted"))
+        }
 
-    // // step fetch
-    //     function handlecusdetail(e){
-    //         e.preventDefault()
-    //         axios.post('http://localhost:3000/Customer',frmdata)
-    //         .then(r=>alert("data inserted"))
-    //     }
+    // step fetch
+        function handlecusdetail(e){
+            e.preventDefault()
+            axios.post('http://localhost:3000/Customer',frmdata)
+            .then(r=>alert("data inserted"))
+        }
     //             // insert
-    //     function insertInp(e){
-    //         const {name,value}=e.target
-    //         setFrmdata({...frmdata,[name]:value})
-    //     }
+        function insertInp(e){
+            const {name,value}=e.target
+            setFrmdata({...frmdata,[name]:value})
+        }
     //         // step1
-    //     useEffect(()=>{
-    //         axios.get('http://localhost:3000/Customer')
-    //         .then(r=>{
-    //             setApidata(r.data)
-    //         })
-    //     },[del])
+        useEffect(()=>{
+            axios.get('http://localhost:3000/Customer')
+            .then(r=>{
+                setApidata(r.data)
+            })
+        },[del])
 
     return(
         <>
-                {/* <div className="tab-tab-table">
+               {/* <div className="tab-tab-table">
             
             <table border="2">
                 <thead>
@@ -106,7 +106,7 @@ const Customeerdet=()=>{
         <img src="/imgvid/logo3.png" alt="" />
         <h1>Please fill the details </h1>
 
-            <form action="" onSubmit={handlecusdetail}>
+            <form action="" >
                 <h3>Personal Information:</h3>
                     <label htmlFor="">Full Name</label>
                     <input type="text" name="fullname" placeholder="enter your full name" onChange={insertInp}/> <br />

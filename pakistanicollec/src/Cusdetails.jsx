@@ -13,93 +13,32 @@ const Customeerdet=()=>{
                     navigatee('/customerjson')
                 }
 
-        let [apidata, setApidata] =  useState([])
         let [frmdata,setFrmdata] = useState([])
-        let [shwfrm,setshw] = useState (false)
-      let [editdata,seteditdata] = useState ({})  
+    
 
 
-    //     // edit
-        function handleedit(e){
-            const{name,value}=e.target
-            seteditdata({...editdata,[name]:value})
-        }
-
-        function editfinalsubmit(e){
-            e.preventDefault()
-            axios.put(`http://localhost:3000/Customer/${editdata.id}`,editdata)
-            .then(r=>alert("updated"))
-        }
-
-            
-
-
-    //     // delete
-        function del(id){
-            axios.delete(`http://localhost:3000/Customer/${id}`)
-            .then(r=>alert("Deleted"))
-        }
-
+    
     // step fetch
         function handlecusdetail(e){
             e.preventDefault()
             axios.post('http://localhost:3000/Customer',frmdata)
-            .then(r=>alert("data inserted"))
+            .then(r=>{alert("data inserted")
+                gotocustomerjson();
+            })
+            
         }
     //             // insert
         function insertInp(e){
             const {name,value}=e.target
             setFrmdata({...frmdata,[name]:value})
+            console.log(frmdata)
         }
     //         // step1
-        useEffect(()=>{
-            axios.get('http://localhost:3000/Customer')
-            .then(r=>{
-                setApidata(r.data)
-            })
-        },[del])
+        
 
     return(
         <>
-               {/* <div className="tab-tab-table">
-            
-            <table border="2">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Address</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    
-                </tr>
-                </thead>
-               
-                        {
-                            apidata.map((e)=>{
-                                return<>
-                                    <tr>
-                                        <td>{e.id}</td>
-                                        <td>{e.fullname}</td>
-                                        <td>{e.email}</td>
-                                        <td>{e.phnnumber}</td>
-                                        <td>{e.productname}</td>
-                                        <td>{e.quantity}.</td>
-                                        <td>{e.address}</td>
-                                        <td><button onClick={()=>(setshw(true),seteditdata(e))}>Edit</button></td>
-                                        <td><button onClick={()=>del(e.id)}>Delete</button></td>
-                                    </tr>
-                                </>
-                            })
-                        }
-
-            </table>
-        
-            </div> */}
+              
            
 
         <div className="cus-cus-cusdetail">
@@ -122,8 +61,8 @@ const Customeerdet=()=>{
                     <label htmlFor="">Product Name</label>
                     <input type="text" name="productname" placeholder="enter your product name" onChange={insertInp}/> <br />
 
-                    <label for="quantity" onChange={insertInp}>Quantity:</label>
-<select id="quantity" name="quantity">
+                    <label for="quantity" >Quantity:</label>
+<select id="quantity" name="quantity" onChange={insertInp}>
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -139,7 +78,8 @@ const Customeerdet=()=>{
         <label htmlFor="">Address</label>
         <input type="text" name="address" placeholder="enter your full address"onChange={insertInp} /> <br />
 
-            <input type="submit" value={"thank you for the details"}  onClick={gotocustomerjson}/>
+            {/* <input type="submit" value={"thank you for the details"}  /> */}
+            <button onClick={handlecusdetail}>Place order</button>
             </form>
             </div>
 

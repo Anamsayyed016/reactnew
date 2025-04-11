@@ -5,31 +5,43 @@ import './App.css'
 const Customerjsondet=()=>{
 
     let [apidata,setApidata] = useState([])
-    let [editdata,Seteditdata] = useState([])
+    let [editdata,Seteditdata] = useState({});
     let [shwdata,Setshw] = useState(false)
        
-        function editfinalsubmit(e){
-            const{name,value}=e.target
-
-            Seteditdata({...frmdata,[name]:value})
-        }
+        
          function handleedit(e){
             const{name,value}=e.target
             Seteditdata({...editdata,[name]:value})
+            console.log(editdata);
         }    
 
         function editfinalsubmit(e){
-            e.preventdefault()
+            e.preventDefault()
+            console.log()
             axios.put(`http://localhost:3000/Customer/${editdata.id}`,editdata)
-            .then(r=>alert("updated"))
+            .then(r=>{alert("updated")
+                load();
+            })
         }
 
-    useEffect(()=>{
+        function del(id){
+            axios.delete(`http://localhost:3000/Customer/${id}`)
+            .then(r=>{alert("Deleted")
+                load();
+            })
+          }
+
+        const load=()=>{
             axios.get('http://localhost:3000/Customer')
             .then(res=>{
                 setApidata(res.data)
+                console.log(res.data);
             })
-    })
+        }
+
+    useEffect(()=>{
+            load();
+    },[])
 
     return(
         <>
@@ -77,7 +89,7 @@ const Customerjsondet=()=>{
                     shwdata && (
                         
                             <div className="edit-form"> 
-                            <form action=""  onSubmit={editfinalsubmit}>
+                            
                 <h3>Personal Information:</h3>
                     <label htmlFor="">Full Name</label>
                     <input type="text" name="fullname" placeholder="enter your full name" value={editdata.name} onChange={handleedit} /> <br />
@@ -94,7 +106,7 @@ const Customerjsondet=()=>{
                     <input type="text" name="productname" placeholder="enter your product name" value={editdata.productname} onChange={handleedit} /> <br />
 
                     <label for="quantity" >Quantity:</label>
-<select id="quantity" name="quantity" >
+<select id="quantity" name="quantity" value={editdata.quantity} onChange={handleedit} >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -110,8 +122,8 @@ const Customerjsondet=()=>{
         <label htmlFor="">Address</label>
         <input type="text" name="address" placeholder="enter your full address" value={editdata.address} onChange={handleedit} /> <br />
 
-            <input type="submit" value={"thank you for the details"}  />
-            </form>
+            
+            <button onClick={editfinalsubmit}>Edit Order</button>
             </div>
         )}       
             </div>    

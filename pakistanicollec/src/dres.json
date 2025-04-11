@@ -1,20 +1,49 @@
 {
   "Customer": [
     {
-      "id": "0ca2",
-      "fullname": "anam sayyed",
+      "id": "e40d",
+      "fullname": "kishan",
       "email": "anamsayyed58@gmail.com",
       "phnnumber": "08107738186",
       "address": "house no. 20 neqr kallu bua masjid, kamla park",
-      "productname": "Mouse"
+      "productname": "keyboard",
+      "quantity": "6"
     },
     {
-      "id": "1126",
+      "id": "bfb8",
+      "fullname": "anam",
+      "email": "anamsayyed58@gmail.com",
+      "phnnumber": "08107738186",
+      "address": "house no. 20 neqr kallu bua masjid, kamla park",
+      "productname": "keyboard",
+      "quantity": "5"
+    },
+    {
+      "id": "bdb5",
+      "fullname": "anam s",
+      "email": "anamsayyed58@gmail.com",
+      "phnnumber": "08107738186",
+      "address": "house no. 20 neqr kallu bua masjid, kamla park",
+      "productname": "Mouse",
+      "quantity": "2"
+    },
+    {
+      "id": "a8c7",
       "fullname": "anam sayyed",
       "email": "anamsayyed58@gmail.com",
       "phnnumber": "08107738186",
       "address": "house no. 20 neqr kallu bua masjid, kamla park",
-      "productname": "Mouse"
+      "productname": "Mouse",
+      "quantity": "8"
+    },
+    {
+      "id": "ff36",
+      "fullname": "anam sayyed",
+      "email": "anamsayyed58@gmail.com",
+      "phnnumber": "08107738186",
+      "address": "house no. 20 neqr kallu bua masjid, kamla park",
+      "productname": "keyboard",
+      "quantity": "8"
     }
   ]
 }

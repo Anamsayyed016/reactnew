@@ -5,15 +5,16 @@ import './App.css';
 
 const Customerjsondet = () => {
   const location = useLocation();
-  const userEmail = location.state?.userEmail;
-
   const [apidata, setApidata] = useState([]);
-  const [editdata, Seteditdata] = useState({});
-  const [shwdata, Setshw] = useState(false);
+  const [editdata, setEditdata] = useState({});
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  // ✅ Safely retrieve user email from location or localStorage
+  const userEmail = location.state?.userEmail || localStorage.getItem("userEmail");
 
   const handleedit = (e) => {
     const { name, value } = e.target;
-    Seteditdata({ ...editdata, [name]: value });
+    setEditdata({ ...editdata, [name]: value });
   };
 
   const editfinalsubmit = (e) => {
@@ -37,10 +38,10 @@ const Customerjsondet = () => {
     axios.get('http://localhost:3000/Customer')
       .then(res => {
         if (userEmail) {
-          const userOrders = res.data.filter(entry => entry.email === userEmail);
-          setApidata(userOrders); 
+          const filtered = res.data.filter(entry => entry.email === userEmail);
+          setApidata(filtered);
         } else {
-          setApidata(res.data); 
+          setApidata([]); 
         }
       });
   };
@@ -51,6 +52,7 @@ const Customerjsondet = () => {
 
   return (
     <div className="tab-tab-table">
+      <h2>Your Orders</h2>
       <table border="2">
         <thead>
           <tr>
@@ -76,14 +78,14 @@ const Customerjsondet = () => {
               <td>{e.productName}</td>
               <td>{e.productQuantity}</td>
               <td>{e.address}</td>
-              <td><button onClick={() => (Setshw(true), Seteditdata(e))}>Edit</button></td>
+              <td><button onClick={() => (setShowEditForm(true), setEditdata(e))}>Edit</button></td>
               <td><button onClick={() => del(e.id)}>Delete</button></td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {shwdata && (
+      {showEditForm && (
         <div className="edit-form">
           <h3>Edit Order</h3>
 

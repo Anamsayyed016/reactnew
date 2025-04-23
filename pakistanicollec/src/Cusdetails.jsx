@@ -10,9 +10,11 @@ const Customeerdet = () => {
 
   const [frmdata, setFrmdata] = useState({});
 
-  const gotocustomerjson = (email) => {
+  const gotocustomerjson = () => {
+    const email = localStorage.getItem("userEmail");
     navigate('/customerjson', { state: { userEmail: email } });
   };
+  
 
   const handlecusdetail = (e) => {
     e.preventDefault();
@@ -26,10 +28,11 @@ const Customeerdet = () => {
     };
 
     axios.post('http://localhost:3000/Customer', orderDetails)
-      .then(() => {
-        alert("Order placed successfully!");
-        gotocustomerjson(frmdata.email); 
-      })
+    .then(() => {
+      alert("Order placed successfully!");
+      gotocustomerjson();
+    })
+    
       .catch(err => {
         alert("Something went wrong!");
       });

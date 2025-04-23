@@ -1,56 +1,48 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+const Create = () => {
+  const [frmdata, setFrmdata] = useState({
+    your_name: "", number: "", email: "", password: ""
+  });
 
-const Create =()=>{
+  const loginnav = useNavigate();
 
-    let[frmdata, setFrmdata] = useState({
-        your_name:"",number:"",email:"",password:""
-    })
+  const inpchange = (e) => {
+    const { name, value } = e.target;
+    setFrmdata({ ...frmdata, [name]: value });
+  };
 
-        const gotoLogin=()=>{
-            Navigate("/login")
-        }
+  const Finalsubmit = (e) => {
+    e.preventDefault();
+    console.log(frmdata);
+    localStorage.setItem("userdata", JSON.stringify(frmdata));
+    localStorage.setItem("userEmail", frmdata.email); 
+    loginnav("/login");
+  };
 
-        let loginnav = useNavigate()
-            function inpchange(e){
-              const{name,value}=e.target
-                setFrmdata({...frmdata,[name]:value})
-            }
+  return (
+    <div className="cre-cre-acc">
+      <img src="/imgvid/logo3.png" alt="" />
+      <h1>Create an account</h1>
 
-              function Finalsubmit(e){
-                e.preventDefault(e)
-                console.log(frmdata);
-                localStorage.setItem("userdata",JSON.stringify(frmdata))
-                loginnav ("/login")
-              }
+      <form onSubmit={Finalsubmit}>
+        <label>Your Name</label>
+        <input type="text" name="your_name" placeholder="First and Last name" onChange={inpchange} required /> <br />
 
-    return(
-        <>
-          <div className="cre-cre-acc">
-            <img src="/imgvid/logo3.png" alt="" />
-            <h1>Create a account</h1>
+        <label>Mobile Number</label>
+        <input type="tel" name="number" placeholder="Mobile Number" onChange={inpchange} required /> <br /> 
 
-          <form action="" onSubmit={Finalsubmit}>
-            <label htmlFor="">Your Name</label>
-      <input type="text" name="your_name" placeholder=" First and Last name" onChange={inpchange} required/> <br />
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Your Email" onChange={inpchange} required /> <br />
 
-      <label htmlFor="">Mobile Number</label>
-      <input type="tel" name="number" placeholder="Mobile Number" onChange={inpchange} required /> <br /> 
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Your Password" onChange={inpchange} required /> <br /> 
 
-      <label htmlFor="">Email</label>
-      <input type="text" name="email" placeholder=" Your Email" onChange={inpchange} required/> <br />
+        <input type="submit" value="Create Your Ade-e-Libaas account" />
+      </form>
+    </div>
+  );
+};
 
-
-      <label htmlFor="">Password</label>
-      <input type="password" name="password" placeholder="Your Password" onChange={inpchange} required/> <br /> 
-
-      <input type="submit" value="Create Your Ade-e-Libaas account" onClick={gotoLogin} />
-          </form>
-
-            </div>   
-        </>
-    )
-}
-
-export default Create
+export default Create;

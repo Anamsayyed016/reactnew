@@ -1,72 +1,81 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-const Collection=()=>{
+const Collection = () => {
+  const navigate = useNavigate();
+  const [quantities, setQuantities] = useState({});
 
-        const navigatee = useNavigate()
+  const handleQuantityChange = (index, value) => {
+    setQuantities({ ...quantities, [index]: parseInt(value) });
+  };
 
-            const gotocustable=()=>{
-                navigatee('/cusdetails')
-            }
+  const goToCusTable = (product, index) => {
+    const quantity = quantities[index] || 1;
+    navigate('/cusdetails', { state: { ...product, quantity } });
+  };
 
+  const products = [
+    {
+      name: "Azure Ensemble wedding party suits for women | Mossy Charm",
+      price: "₹4,699",
+      image:
+        "https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Mossy-Charm-b.webp",
+    },
+    {
+      name: "Azure Ensemble wedding party suits for women | Ruby Rose",
+      price: "₹3,699",
+      image:
+        "https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Ruby-Rose-b.webp",
+    },
+    {
+      name: "Azure Ensemble wedding party suits for women | Dewy Lavender",
+      price: "₹5,699",
+      image:
+        "https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Dewy-Lavender-b.webp",
+    },
+    {
+      name: "Azure Ensemble wedding party suits for women | Rouge",
+      price: "₹10,699",
+      image:
+        "https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Rouge-b.webp",
+    },
+    {
+      name: "Azure Ensemble wedding party suits for women | Raven Drape",
+      price: "₹4,689",
+      image:
+        "https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Raven-Drape-b.webp",
+    },
+  ];
 
-    return(
-        <>
-        <div className="product-card">
-        <Container>
-      <Row>
-        <Col>
-        <img src="https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Mossy-Charm-b.webp" alt="" style={{width:"50%"}}/>
+  return (
+    <div className="product-card">
+      <Container>
+        <Row>
+          {products.map((product, index) => (
+            <Col key={index}>
+              <img src={product.image} alt="" style={{ width: "80%" }} />
+              <h1>{product.name}</h1>
+              <p>💳 FLAT 5% Discount on Prepaid Orders!</p>
+              <h5>{product.price}</h5>
 
-            <h1>Azure Ensemble wedding party suits for women | Mossy Charm</h1>
-                <p>💳 FLAT 5% Discount on Prepaid Orders!</p>
-                <h5>₹4,699</h5>
-                <button onClick={gotocustable}>Add to Card</button>
-        </Col>
+              <label>Quantity:</label>
+              <input
+                type="number"
+                min="1"
+                value={quantities[index] || 1}
+                onChange={(e) => handleQuantityChange(index, e.target.value)}
+              />
 
-        <Col>
-            <img src="https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Ruby-Rose-b.webp" alt="" style={{width:"50%"}} />
-            <h1>Azure Ensemble wedding party suits for women | Ruby Rose</h1>
-            <p>💳 FLAT 5% Discount on Prepaid Orders!</p>
-            <h5>₹3,699</h5>
+              <button type="button" onClick={() => goToCusTable(product, index)}>
+                Add to Cart
+              </button>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </div>
+  );
+};
 
-            <button onClick={gotocustable}>Add to Card</button>
-
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-        <img src="https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Dewy-Lavender-b.webp" alt=""style={{width:"80%"}} />
-        <h1>Azure Ensemble wedding party suits for women | Dewy Lavender</h1>
-        <p>💳 FLAT 5% Discount on Prepaid Orders!</p>
-        <h5>₹5,699</h5>
-
-            <button onClick={gotocustable}>Add to Card</button>
-        </Col>
-        <Col>
-        <img src="https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Rouge-b.webp" alt="" style={{width:"80%"}}/>
-        <h1>Azure Ensemble wedding party suits for women | Rouge</h1>
-        <p>💳 FLAT 5% Discount on Prepaid Orders!</p>
-        <h5>₹10,699</h5>
-
-        <button onClick={gotocustable}>Add to Card</button>
-        </Col>
-        <Col>
-            <img src="https://shristyles.com//wp-content/uploads/2025/03/Azure-ensemble-wedding-party-suits-for-women-Raven-Drape-b.webp" alt="" style={{width:"80%"}}/>
-            <h1>Azure Ensemble wedding party suits for women | Raven Drape</h1>
-            <p>💳 FLAT 5% Discount on Prepaid Orders!</p>
-            <h5>₹4,689</h5>
-
-        <button onClick={gotocustable}>Add to Card</button>
-        </Col>
-      </Row>
-    </Container>
-        </div>
-        
-        </>
-    )
-}
-
-export default Collection
+export default Collection;

@@ -1,133 +1,115 @@
-import axios from "axios"
-import { useEffect , useState } from "react"
-import './App.css'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import './App.css';
 
-const Customerjsondet=()=>{
+const Customerjsondet = () => {
+  const location = useLocation();
+  const userEmail = location.state?.userEmail;
 
-    let [apidata,setApidata] = useState([])
-    let [editdata,Seteditdata] = useState({});
-    let [shwdata,Setshw] = useState(false)
-       
-        
-         function handleedit(e){
-            const{name,value}=e.target
-            Seteditdata({...editdata,[name]:value})
-            console.log(editdata);
-        }    
+  const [apidata, setApidata] = useState([]);
+  const [editdata, Seteditdata] = useState({});
+  const [shwdata, Setshw] = useState(false);
 
-        function editfinalsubmit(e){
-            e.preventDefault()
-            console.log()
-            axios.put(`http://localhost:3000/Customer/${editdata.id}`,editdata)
-            .then(r=>{alert("updated")
-                load();
-            })
+  const handleedit = (e) => {
+    const { name, value } = e.target;
+    Seteditdata({ ...editdata, [name]: value });
+  };
+
+  const editfinalsubmit = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:3000/Customer/${editdata.id}`, editdata)
+      .then(() => {
+        alert("Updated");
+        load();
+      });
+  };
+
+  const del = (id) => {
+    axios.delete(`http://localhost:3000/Customer/${id}`)
+      .then(() => {
+        alert("Deleted");
+        load();
+      });
+  };
+
+  const load = () => {
+    axios.get('http://localhost:3000/Customer')
+      .then(res => {
+        if (userEmail) {
+          const userOrders = res.data.filter(entry => entry.email === userEmail);
+          setApidata(userOrders); 
+        } else {
+          setApidata(res.data); 
         }
+      });
+  };
 
-        function del(id){
-            axios.delete(`http://localhost:3000/Customer/${id}`)
-            .then(r=>{alert("Deleted")
-                load();
-            })
-          }
+  useEffect(() => {
+    load();
+  }, []);
 
-        const load=()=>{
-            axios.get('http://localhost:3000/Customer')
-            .then(res=>{
-                setApidata(res.data)
-                console.log(res.data);
-            })
-        }
+  return (
+    <div className="tab-tab-table">
+      <table border="2">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
 
-    useEffect(()=>{
-            load();
-    },[])
+        <tbody>
+          {apidata.map((e) => (
+            <tr key={e.id}>
+              <td>{e.id}</td>
+              <td>{e.fullname}</td>
+              <td>{e.email}</td>
+              <td>{e.phnnumber}</td>
+              <td>{e.productName}</td>
+              <td>{e.productQuantity}</td>
+              <td>{e.address}</td>
+              <td><button onClick={() => (Setshw(true), Seteditdata(e))}>Edit</button></td>
+              <td><button onClick={() => del(e.id)}>Delete</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-    return(
-        <>
-            <div className="tab-tab-table">
-            
-            <table border="2">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Address</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    
-                </tr>
-                </thead>
-               
-                        {
-                            apidata.map((e)=>{
-                                return<>
-                                    <tr>
-                                        <th>{e.id}</th>
-                                        <th>{e.fullname}</th>
-                                        <th>{e.email}</th>
-                                        <th>{e.phnnumber}</th>
-                                        <th>{e.productname}</th>
-                                        <th>{e.quantity}</th>
-                                        <th>{e.address}</th>
-                                        <th><button onClick={()=>(Setshw(true),Seteditdata(e))}>Edit</button></th>
-                                        <th><button onClick={()=>del(e.id)}>Delete</button></th>
-                                    </tr>
-                                </>
-                            })
-                        }
+      {shwdata && (
+        <div className="edit-form">
+          <h3>Edit Order</h3>
 
-            </table>
+          <label>Full Name</label>
+          <input type="text" name="fullname" value={editdata.fullname} onChange={handleedit} /><br />
 
-                       
+          <label>Email Address</label>
+          <input type="email" name="email" value={editdata.email} onChange={handleedit} /><br />
 
-                    {
-                    shwdata && (
-                        
-                            <div className="edit-form"> 
-                            
-                <h3>Personal Information:</h3>
-                    <label htmlFor="">Full Name</label>
-                    <input type="text" name="fullname" placeholder="enter your full name" value={editdata.name} onChange={handleedit} /> <br />
+          <label>Phone Number</label>
+          <input type="number" name="phnnumber" value={editdata.phnnumber} onChange={handleedit} /><br />
 
-                    <label htmlFor="">Email Address</label>
-                    <input type="email" name="email" placeholder="enter your email" value={editdata.email} onChange={handleedit} /> <br />
+          <label>Product Name</label>
+          <input type="text" name="productName" value={editdata.productName} onChange={handleedit} /><br />
 
-                    <label htmlFor="">Phone Number</label>
-                    <input type="number" name="phnnumber" placeholder="enter your email"  value={editdata.phnnumber} onChange={handleedit}/> <br />
+          <label>Quantity</label>
+          <input type="number" name="productQuantity" value={editdata.productQuantity} onChange={handleedit} /><br />
 
-                    <h3>Order & Shipping  Details:</h3>
-           
-                    <label htmlFor="">Product Name</label>
-                    <input type="text" name="productname" placeholder="enter your product name" value={editdata.productname} onChange={handleedit} /> <br />
+          <label>Address</label>
+          <input type="text" name="address" value={editdata.address} onChange={handleedit} /><br />
 
-                    <label for="quantity" >Quantity:</label>
-<select id="quantity" name="quantity" value={editdata.quantity} onChange={handleedit} >
-  <option value="0">0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select><br />
-        <label htmlFor="">Address</label>
-        <input type="text" name="address" placeholder="enter your full address" value={editdata.address} onChange={handleedit} /> <br />
+          <button onClick={editfinalsubmit}>Edit Order</button>
+        </div>
+      )}
+    </div>
+  );
+};
 
-            
-            <button onClick={editfinalsubmit}>Edit Order</button>
-            </div>
-        )}       
-            </div>    
-        </>
-    )
-}
-export default Customerjsondet
+export default Customerjsondet;

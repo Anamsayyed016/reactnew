@@ -1,93 +1,81 @@
-import axios from "axios"
-import { useEffect , useState } from "react"
-import './App.css'
-import { useNavigate } from "react-router-dom"
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import './App.css';
 
+const Customeerdet = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const product = location.state;
 
-const Customeerdet=()=>{
+  const [frmdata, setFrmdata] = useState({});
 
-             // navvigate
-             const navigatee = useNavigate()
+  const gotocustomerjson = (email) => {
+    navigate('/customerjson', { state: { userEmail: email } });
+  };
 
-                const gotocustomerjson=()=>{
-                    navigatee('/customerjson')
-                }
+  const handlecusdetail = (e) => {
+    e.preventDefault();
 
-        let [frmdata,setFrmdata] = useState([])
-    
+    const orderDetails = {
+      ...frmdata,
+      productName: product?.name,
+      productPrice: product?.price,
+      productImage: product?.image,
+      productQuantity: product?.quantity || 1,
+    };
 
+    axios.post('http://localhost:3000/Customer', orderDetails)
+      .then(() => {
+        alert("Order placed successfully!");
+        gotocustomerjson(frmdata.email); 
+      })
+      .catch(err => {
+        alert("Something went wrong!");
+      });
+  };
 
-    
-    // step fetch
-        function handlecusdetail(e){
-            e.preventDefault()
-            axios.post('http://localhost:3000/Customer',frmdata)
-            .then(r=>{alert("data inserted")
-                gotocustomerjson();
-            })
-            
-        }
-    //             // insert
-        function insertInp(e){
-            const {name,value}=e.target
-            setFrmdata({...frmdata,[name]:value})
-            console.log(frmdata)
-        }
-    //         // step1
-        
+  const insertInp = (e) => {
+    const { name, value } = e.target;
+    setFrmdata({ ...frmdata, [name]: value });
+  };
 
-    return(
-        <>
-              
-           
+  return (
+    <div className="cus-cus-cusdetail">
+      <img src="/imgvid/logo3.png" alt="logo" />
+      <h1>Please fill the details</h1>
 
-        <div className="cus-cus-cusdetail">
-        <img src="/imgvid/logo3.png" alt="" />
-        <h1>Please fill the details </h1>
+      <form onSubmit={handlecusdetail}>
+        <h3>Personal Information:</h3>
 
-            <form action="" >
-                <h3>Personal Information:</h3>
-                    <label htmlFor="">Full Name</label>
-                    <input type="text" name="fullname" placeholder="enter your full name" onChange={insertInp}/> <br />
+        <label>Full Name</label>
+        <input type="text" name="fullname" placeholder="Enter your full name" onChange={insertInp} required /><br />
 
-                    <label htmlFor="">Email Address</label>
-                    <input type="email" name="email" placeholder="enter your email" onChange={insertInp} /> <br />
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Enter your email" onChange={insertInp} required /><br />
 
-                    <label htmlFor="">Phone Number</label>
-                    <input type="number" name="phnnumber" placeholder="enter your email"onChange={insertInp} /> <br />
+        <label>Phone Number</label>
+        <input type="number" name="phnnumber" placeholder="Enter your number" onChange={insertInp} required /><br />
 
-                    <h3>Order & Shipping  Details:</h3>
-           
-                    <label htmlFor="">Product Name</label>
-                    <input type="text" name="productname" placeholder="enter your product name" onChange={insertInp}/> <br />
+        <label>Address</label>
+        <input type="text" name="address" placeholder="Enter your full address" onChange={insertInp} required /><br />
 
-                    <label for="quantity" >Quantity:</label>
-<select id="quantity" name="quantity" onChange={insertInp}>
-  <option value="0">0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select><br />
-        <label htmlFor="">Address</label>
-        <input type="text" name="address" placeholder="enter your full address"onChange={insertInp} /> <br />
+        <div style={{ margintop: "30px" }}>
+          <h2>Shopping Cart</h2>
+          {product && (
+            <>
+              <img src={product.image} alt={product.name} style={{ width: "50%", marginbottom: "10px" }} />
+              <h3>{product.name}</h3>
+              <h5>Price: {product.price}</h5>
+              <h5>Quantity: {product.quantity || 1}</h5>
+            </>
+          )}
+        </div>
 
-            {/* <input type="submit" value={"thank you for the details"}  /> */}
-            <button onClick={handlecusdetail}>Place order</button>
-            </form>
-            </div>
+        <button type="submit" style={{ marginTop: "20px" }}>Place Order</button>
+      </form>
+    </div>
+  );
+};
 
-
-                           
-                        
-        </>
-    )
-}
-
-export default Customeerdet
+export default Customeerdet;

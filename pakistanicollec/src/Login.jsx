@@ -40,7 +40,7 @@ const Login=()=>{
             <input type="text" name = "username" placeholder="enter email or number" onChange={loginvalue} /> <br />
 
             <label htmlFor="">Password</label>
-            <input type="text" name = "password" placeholder="password" onChange={loginvalue}/> <br />
+            <input type="password" name = "password" placeholder="password" onChange={loginvalue}/> <br />
 
             <input type="submit" value={"Login"} />
             </form>

@@ -43,7 +43,7 @@ const Create =()=>{
 
 
       <label htmlFor="">Password</label>
-      <input type="text" name="password" placeholder="Your Password" onChange={inpchange} required/> <br /> 
+      <input type="password" name="password" placeholder="Your Password" onChange={inpchange} required/> <br /> 
 
       <input type="submit" value="Create Your Ade-e-Libaas account" onClick={gotoLogin} />
           </form>
